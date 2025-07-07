@@ -1,4 +1,4 @@
-from pydantic_settings import BaseModel
+from pydantic import BaseModel
 
 
 #so this tells us what repo, file, and branch to commit to
@@ -22,3 +22,9 @@ class CommitPayload(BaseModel):
     content: str
     commit_message: str
     source_content: str ="quote" #can be problem or anything
+
+
+#this is to make it dynamic so others can use it
+#without needing to modify the .env
+class GithubToken(BaseModel):
+    token: str
